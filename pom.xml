@@ -9,7 +9,7 @@
     <!-- +=============================================== -->
     <groupId>org.hellstrand</groupId>
     <artifactId>renfikt</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
 
     <!-- +=============================================== -->
     <!-- | Section 2: Properties                          -->
@@ -17,6 +17,7 @@
     <properties>
         <!-- External dependencies -->
         <slf4j-simple.version>2.0.17</slf4j-simple.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>
 
     <!-- +=============================================== -->
@@ -35,6 +36,17 @@
     <!-- | Section 4: Build                               -->
     <!-- +=============================================== -->
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
