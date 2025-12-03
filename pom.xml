@@ -17,6 +17,7 @@
     <properties>
         <!-- External dependencies -->
         <slf4j-simple.version>2.0.17</slf4j-simple.version>
+        <junit-jupiter-engine.version>5.10.0</junit-jupiter-engine.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>
 
@@ -29,6 +30,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-simple.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter-engine.version}</version>
         </dependency>
     </dependencies>
 
