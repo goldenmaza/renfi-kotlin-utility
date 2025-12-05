@@ -2,9 +2,12 @@ package org.hellstrand.renfikt.constant
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (4th of December, 2025)
+ * @version (5th of December, 2025)
  */
 object Constants {
+    // Application states, actions, attributes...
+    const val FLOW_INDEX = 0
+
     // Application flags for handling files...
     const val FILE_PROCESSING = "-f"
     const val DATA_PROCESSING = "-d"
@@ -59,9 +62,9 @@ object Constants {
     const val EXTENSION_AVI = ".avi"
     const val EXTENSION_MP4 = ".mp4"
     const val EXTENSION_MOV = ".mov"
-    const val EXTENSION_MPG = ".mpg";//java+7 only
-    const val EXTENSION_WMV = ".wmv";//java+7 only
-    const val EXTENSION_MKV = ".mkv";//java+7 only
+    const val EXTENSION_MPG = ".mpg"//java+7 only
+    const val EXTENSION_WMV = ".wmv"//java+7 only
+    const val EXTENSION_MKV = ".mkv"//java+7 only
     val MEDIA_SUPPORT = mapOf(
         IMAGE_PROCESSING to listOf(
             EXTENSION_JPG,
@@ -77,6 +80,13 @@ object Constants {
             EXTENSION_MKV)
     )
 
+    // Labels used by the application...
+    const val LABEL_FILE_PROCESSING = "File handling"
+    const val LABEL_DATA_PROCESSING = "Data handling"
+    const val LABEL_UNKNOWN_EXECUTION = "UNKNOWN"
+
     // Message variables used for displaying states, or actions, in the application...
-    const val MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION = "Displaying the Help Guide as you might have used the application incorrectly";
+    const val MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION = "Displaying the Help Guide as you might have used the application incorrectly"
+    const val MESSAGE_INVALID_FLOW_INDEX = "Invalid use of application where the FLOW flag is either misspelled or missing: {}"
+    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}'"
 }

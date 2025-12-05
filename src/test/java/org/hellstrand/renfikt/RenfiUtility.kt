@@ -1,45 +1,87 @@
 package org.hellstrand.renfikt
 
-import org.hellstrand.renfikt.constant.ConstantsTest.DUMMY_ARGUMENT
+import org.hellstrand.renfikt.constant.Constants.DATA_PROCESSING
+import org.hellstrand.renfikt.constant.Constants.FILE_PROCESSING
+import org.hellstrand.renfikt.constant.Constants.MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION
+import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_ALLOWED_ARGUMENT_IS_USED_AND_LOGGED
+import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_FLOW_INDEX
 import org.hellstrand.renfikt.constant.ConstantsTest.HYPHEN_HELP_FLAG
-import org.hellstrand.renfikt.constant.ConstantsTest.MESSAGE_PROGRAM_ARGUMENTS_ARE_IGNORED
+import org.hellstrand.renfikt.constant.ConstantsTest.INVALID_HYPHEN_FLAG
 import org.hellstrand.renfikt.exception.DisplayHelpGuideException
+import org.hellstrand.renfikt.exception.InvalidUseException
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.api.function.Executable
 
 class RenfiUtilityTest {
-    @Test
-    @DisplayName("Verifying that the main method ends successfully")
-    fun mainMethodEntryTest_ProgramArgumentsAreIgnored() {
-        // Prepare
-        val args = arrayOf(DUMMY_ARGUMENT)
-
-        // Execute
-        RenfiUtility.main(args)
-
-        // Assert
-        assertTrue(true, MESSAGE_PROGRAM_ARGUMENTS_ARE_IGNORED)
-    }
-
     @Test
     @DisplayName("Verifying that the main method displays the HelpGuide AND throws DisplayHelpGuideException successfully when providing no arguments")
     fun mainMethodEntryTest_NoArguments_DisplayTheHelpGuideAndThrowDisplayHelpGuideException() {
         // Prepare
         val args = arrayOf<String>()
 
-        // Execute & Assert
-        assertThrows<DisplayHelpGuideException> { RenfiUtility.main(args) }
+        // Execute
+        val executable = Executable { RenfiUtility.main(args) }
+
+        // Assert
+        val exception = assertThrows(DisplayHelpGuideException::class.java, executable)
+        assertEquals(MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION, exception.message)
     }
 
     @Test
     @DisplayName("Verifying that the main method displays the HelpGuide AND throws DisplayHelpGuideException successfully when providing a help flag")
-    fun mainMethodEntryTest_HyphenHelpFlagArgument_DisplayTheHelpGuideAndThrowDisplayHelpGuideException() {
+    fun mainMethodEntryTest_HelpFlagArgument_DisplayTheHelpGuideAndThrowDisplayHelpGuideException() {
         // Prepare
         val args = arrayOf(HYPHEN_HELP_FLAG)
 
-        // Execute & Assert
-        assertThrows<DisplayHelpGuideException> { RenfiUtility.main(args) }
+        // Execute
+        val executable = Executable { RenfiUtility.main(args) }
+
+        // Assert
+        val exception = assertThrows(DisplayHelpGuideException::class.java, executable)
+        assertEquals(MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION, exception.message)
+    }
+
+    @Test
+    @DisplayName("Verifying that the main method fetches the FLOW argument and act accordingly when it is used incorrectly")
+    fun mainMethodEntryTest_InvalidFlowFlagArgument_LogErrorAndThrowInvalidUseException() {
+        // Prepare
+        val args = arrayOf(INVALID_HYPHEN_FLAG)
+
+        // Execute
+        val executable = Executable { RenfiUtility.main(args) }
+
+        // Assert
+        val exception = assertThrows(InvalidUseException::class.java, executable)
+        assertEquals(ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_FLOW_INDEX, exception.message)
+    }
+
+    @Test
+    @DisplayName("Verifying that the main method fetches the FLOW argument (FileProcessing) and act accordingly when it is used correctly")
+    fun mainMethodEntryTest_FlowFlagArgument_DisplayFileProcessingLogging() {
+        // Prepare
+        val args = arrayOf(FILE_PROCESSING)
+
+        // Execute
+        RenfiUtility.main(args)
+
+        // Assert
+        assertTrue(true, ASSERT_ALLOWED_ARGUMENT_IS_USED_AND_LOGGED)
+    }
+
+    @Test
+    @DisplayName("Verifying that the main method fetches the FLOW argument (DataProcessing) and act accordingly when it is used correctly")
+    fun mainMethodEntryTest_FlowFlagArgument_DisplayDataProcessingLogging() {
+        // Prepare
+        val args = arrayOf(DATA_PROCESSING)
+
+        // Execute
+        RenfiUtility.main(args)
+
+        // Assert
+        assertTrue(true, ASSERT_ALLOWED_ARGUMENT_IS_USED_AND_LOGGED)
     }
 }

@@ -2,13 +2,18 @@ package org.hellstrand.renfikt.constant
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (4th of December, 2025)
+ * @version (5th of December, 2025)
  */
 object ConstantsTest {
     // Application flags for handling files...
-    const val DUMMY_ARGUMENT = "lorem"
     const val HYPHEN_HELP_FLAG = "-h"
+    const val INVALID_HYPHEN_FLAG = "-x"
 
     // Logging variables...
-    const val MESSAGE_PROGRAM_ARGUMENTS_ARE_IGNORED = "By reaching this row we have verified that the code works, as no exceptions are thrown..."
+    const val ASSERT_ALLOWED_ARGUMENT_IS_USED_AND_LOGGED = "Displaying that the allowed flag has been fetched and logged from their respective index"
+    const val ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_FLOW_INDEX = "Invalid use of application where the FLOW flag is either misspelled or missing: -x"
+    const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: {}"
+    const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS = "Asserting that the formatMessage function is working as expected with a single template and multiple parameters: {} {}"
+    const val ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: -f"
+    const val ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETERS = "Asserting that the formatMessage function is working as expected with a single template and multiple parameters: -f -d"
 }
