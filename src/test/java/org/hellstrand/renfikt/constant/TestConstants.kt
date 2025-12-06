@@ -6,6 +6,7 @@ package org.hellstrand.renfikt.constant
  */
 object TestConstants {
     // Application flags for handling files...
+    const val DEFAULT_INDEX = "0"
     const val HYPHEN_HELP_FLAG = "-h"
     const val INVALID_HYPHEN_FLAG = "-x"
     const val INVALID_RESOURCES_DIRECTORY_PATH = "/src/main/resXurces"
@@ -17,6 +18,7 @@ object TestConstants {
     const val ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_BRANCH_INDEX = "Invalid use of application where the BRANCH flag is either misspelled or missing: -x"
     const val ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_RESOURCE_INDEX = "Invalid use of application where the RESOURCE flag is either misspelled or missing: -x"
     const val ASSERT_PROJECT_DIRECTORY_UNAVAILABLE = "No project directory was found with the stated path: {}"
+    const val ASSERT_MESSAGE_INVALID_EXTENSION_RANGES = "Invalid use of application where the EXTENSIONS are either missing or out of bounds: {} & {}"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: {}"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS = "Asserting that the formatMessage function is working as expected with a single template and multiple parameters: {} {}"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: -f"
