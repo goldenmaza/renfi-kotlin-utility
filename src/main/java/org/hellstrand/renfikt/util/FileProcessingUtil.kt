@@ -1,13 +1,15 @@
 package org.hellstrand.renfikt.util
 
-import java.io.File
+import java.nio.file.Files
+import java.nio.file.LinkOption
+import java.nio.file.Path
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (6th of December, 2025)
+ * @version (15th of December, 2025)
  */
 object FileProcessingUtil {
     fun validateTarget(target: String): Boolean {
-        return File(target).exists()
+        return Files.exists(Path.of(target), LinkOption.NOFOLLOW_LINKS)
     }
 }

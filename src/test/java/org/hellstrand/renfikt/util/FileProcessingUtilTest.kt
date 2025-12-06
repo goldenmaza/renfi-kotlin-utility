@@ -13,8 +13,8 @@ import java.nio.file.Paths
 
 class FileProcessingUtilTest {
     @Test
-    @DisplayName("Verifying that the main method displays the HelpGuide AND throws DisplayHelpGuideException successfully when providing no arguments")
-    fun validateTargetEntryTest_ASS() {
+    @DisplayName("Verifying that the validateTarget validates the provided directory and act accordingly when it is used incorrectly")
+    fun validateTargetTest_InvalidTargetDirectoryPath_LogDirectoryFoundFailure() {
         // Prepare
         val projectAbsolutePath = Paths.get("").toAbsolutePath().toString()
         val invalidDirectoryPath = Paths.get(projectAbsolutePath, INVALID_RESOURCES_DIRECTORY_PATH).toString()
@@ -24,8 +24,8 @@ class FileProcessingUtilTest {
     }
 
     @Test
-    @DisplayName("Verifying that the main method displays the HelpGuide AND throws DisplayHelpGuideException successfully when providing no arguments")
-    fun validateTargetEntryTest_ASS2() {
+    @DisplayName("Verifying that the validateTarget validates the provided directory and act accordingly when it is used correctly")
+    fun validateTargetTest_ValidTargetDirectoryPath_LogDirectoryFoundSuccess() {
         // Prepare
         val projectAbsolutePath = Paths.get("").toAbsolutePath().toString()
         val validDirectoryPath = Paths.get(projectAbsolutePath, VALID_RESOURCES_DIRECTORY_PATH).toString()
