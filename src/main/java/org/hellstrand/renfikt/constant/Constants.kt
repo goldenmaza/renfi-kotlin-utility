@@ -9,6 +9,7 @@ object Constants {
     const val FLOW_INDEX = 0
     const val BRANCH_INDEX = 1
     const val RESOURCE_INDEX = 2
+    const val PATH_INDEX = 3
 
     // Application flags for handling files...
     const val FILE_PROCESSING = "-f"
@@ -102,5 +103,6 @@ object Constants {
     const val MESSAGE_INVALID_FLOW_INDEX = "Invalid use of application where the FLOW flag is either misspelled or missing: {}"
     const val MESSAGE_INVALID_BRANCH_INDEX = "Invalid use of application where the BRANCH flag is either misspelled or missing: {}"
     const val MESSAGE_INVALID_RESOURCE_INDEX = "Invalid use of application where the RESOURCE flag is either misspelled or missing: {}"
-    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}'"
+    const val MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE = "No project directory was found with the stated path: {}"
+    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}' under the following path: '{}'"
 }
