@@ -4,7 +4,7 @@ package org.hellstrand.renfikt.constant
  * @author (Mats Richard Hellstrand)
  * @version (6th of December, 2025)
  */
-object ConstantsTest {
+object TestConstants {
     // Application flags for handling files...
     const val HYPHEN_HELP_FLAG = "-h"
     const val INVALID_HYPHEN_FLAG = "-x"

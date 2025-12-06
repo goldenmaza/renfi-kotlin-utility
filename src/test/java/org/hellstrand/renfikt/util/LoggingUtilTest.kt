@@ -1,12 +1,12 @@
-package org.hellstrand.renfikt.constant
+package org.hellstrand.renfikt.util
 
 import org.hellstrand.renfikt.constant.Constants.DATA_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.FILE_PROCESSING
-import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER
-import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETERS
-import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER
-import org.hellstrand.renfikt.constant.ConstantsTest.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS
-import org.hellstrand.renfikt.constant.LoggingUtil.formatMessage
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETERS
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS
+import org.hellstrand.renfikt.util.LoggingUtil.formatMessage
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
