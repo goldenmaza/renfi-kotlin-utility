@@ -1,10 +1,10 @@
-package org.hellstrand.renfikt.constant
+package org.hellstrand.renfikt.util
 
 import java.lang.String.format
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (5th of December, 2025)
+ * @version (6th of December, 2025)
  */
 object LoggingUtil {
     fun formatMessage(messageTemplate: String, vararg messageParameters: String): String {

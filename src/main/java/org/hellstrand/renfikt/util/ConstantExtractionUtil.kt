@@ -1,4 +1,4 @@
-package org.hellstrand.renfikt.constant
+package org.hellstrand.renfikt.util
 
 import org.hellstrand.renfikt.constant.Constants.COMPARE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.CONVERT_PROCESSING

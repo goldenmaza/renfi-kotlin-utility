@@ -1,4 +1,4 @@
-package org.hellstrand.renfikt.constant
+package org.hellstrand.renfikt.util
 
 import org.hellstrand.renfikt.constant.Constants.BRANCH_FLAGS
 import org.hellstrand.renfikt.constant.Constants.COMPARE_PROCESSING
@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (4th of December, 2025)
+ * @version (6th of December, 2025)
  */
 object HelpGuideUtil {
     private val logger = LoggerFactory.getLogger(HelpGuideUtil::class.java)
