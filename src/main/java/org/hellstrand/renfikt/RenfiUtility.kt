@@ -11,10 +11,14 @@ import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_BRANCH_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_FLOW_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_RESOURCE_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_PROCESSING_TASK
+import org.hellstrand.renfikt.constant.Constants.MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE
+import org.hellstrand.renfikt.constant.Constants.PATH_INDEX
 import org.hellstrand.renfikt.constant.Constants.RESOURCE_INDEX
+import org.hellstrand.renfikt.exception.DirectoryUnavailableException
 import org.hellstrand.renfikt.exception.DisplayHelpGuideException
 import org.hellstrand.renfikt.exception.InvalidUseException
 import org.hellstrand.renfikt.util.ConstantExtractionUtil
+import org.hellstrand.renfikt.util.FileProcessingUtil.validateTarget
 import org.hellstrand.renfikt.util.HelpGuideUtil.displayHelpGuide
 import org.hellstrand.renfikt.util.LoggingUtil.formatMessage
 import org.slf4j.LoggerFactory
@@ -28,7 +32,7 @@ object RenfiUtility {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        if (args.size < 3 || HELP_FLAGS.contains(args[0])) {
+        if (args.size < 4 || HELP_FLAGS.contains(args[0])) {
             displayHelpGuide()
             throw DisplayHelpGuideException(MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION)
         }
@@ -37,6 +41,7 @@ object RenfiUtility {
         val flow = args[FLOW_INDEX]
         val branch = args[BRANCH_INDEX]
         val resource = args[RESOURCE_INDEX]
+        val path = args[PATH_INDEX]
 
         // Evaluate the application's arguments...
         if (!FLOW_FLAGS.contains(flow)) {
@@ -54,12 +59,17 @@ object RenfiUtility {
             throw InvalidUseException(formatMessage(MESSAGE_INVALID_RESOURCE_INDEX, resource))
         }
 
+        if (!validateTarget(path)) {
+            logger.error(MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE, path)
+            throw DirectoryUnavailableException(formatMessage(MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE, path))
+        }
+
         // Fetch the tasks from the extraction utility...
         val flowTask = ConstantExtractionUtil.extractFlowTask(flow)
         val branchTask = ConstantExtractionUtil.extractBranchTask(branch)
         val resourceTask = ConstantExtractionUtil.extractResourceTask(resource)
 
         // Present the application's execution and ask for input...
-        logger.info(MESSAGE_PROCESSING_TASK, flowTask, branchTask, resourceTask)
+        logger.info(MESSAGE_PROCESSING_TASK, flowTask, branchTask, resourceTask, path)
     }
 }
