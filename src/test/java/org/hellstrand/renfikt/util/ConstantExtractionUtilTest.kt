@@ -1,8 +1,5 @@
-package org.hellstrand.renfikt.constant
+package org.hellstrand.renfikt.util
 
-import org.hellstrand.renfikt.constant.ConstantExtractionUtil.extractBranchTask
-import org.hellstrand.renfikt.constant.ConstantExtractionUtil.extractFlowTask
-import org.hellstrand.renfikt.constant.ConstantExtractionUtil.extractResourceTask
 import org.hellstrand.renfikt.constant.Constants.COMPARE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.CONVERT_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.CROP_PROCESSING
@@ -28,7 +25,10 @@ import org.hellstrand.renfikt.constant.Constants.LIST_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.ORIGIN_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.SOURCE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.VIDEO_PROCESSING
-import org.hellstrand.renfikt.constant.ConstantsTest.INVALID_HYPHEN_FLAG
+import org.hellstrand.renfikt.constant.TestConstants.INVALID_HYPHEN_FLAG
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractBranchTask
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractFlowTask
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractResourceTask
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

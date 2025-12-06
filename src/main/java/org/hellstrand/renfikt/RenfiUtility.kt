@@ -1,6 +1,5 @@
 package org.hellstrand.renfikt
 
-import org.hellstrand.renfikt.constant.ConstantExtractionUtil
 import org.hellstrand.renfikt.constant.Constants.BRANCH_FLAGS
 import org.hellstrand.renfikt.constant.Constants.BRANCH_INDEX
 import org.hellstrand.renfikt.constant.Constants.FLOW_FLAGS
@@ -13,10 +12,11 @@ import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_FLOW_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_RESOURCE_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_PROCESSING_TASK
 import org.hellstrand.renfikt.constant.Constants.RESOURCE_INDEX
-import org.hellstrand.renfikt.constant.HelpGuideUtil.displayHelpGuide
-import org.hellstrand.renfikt.constant.LoggingUtil.formatMessage
 import org.hellstrand.renfikt.exception.DisplayHelpGuideException
 import org.hellstrand.renfikt.exception.InvalidUseException
+import org.hellstrand.renfikt.util.ConstantExtractionUtil
+import org.hellstrand.renfikt.util.HelpGuideUtil.displayHelpGuide
+import org.hellstrand.renfikt.util.LoggingUtil.formatMessage
 import org.slf4j.LoggerFactory
 
 /**
