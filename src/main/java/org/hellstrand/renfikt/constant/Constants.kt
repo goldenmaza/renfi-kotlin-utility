@@ -2,12 +2,13 @@ package org.hellstrand.renfikt.constant
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (5th of December, 2025)
+ * @version (6th of December, 2025)
  */
 object Constants {
     // Application states, actions, attributes...
     const val FLOW_INDEX = 0
     const val BRANCH_INDEX = 1
+    const val RESOURCE_INDEX = 2
 
     // Application flags for handling files...
     const val FILE_PROCESSING = "-f"
@@ -92,11 +93,14 @@ object Constants {
     const val LABEL_JAVA = "Using Java +7"
     const val LABEL_ORIGIN = "Using Drew Noakes's extractor"
     const val LABEL_LIST = "Using a File as resource"
+    const val LABEL_IMAGES = "Images"
+    const val LABEL_VIDEOS = "Videos"
     const val LABEL_UNKNOWN_EXECUTION = "UNKNOWN"
 
     // Message variables used for displaying states, or actions, in the application...
     const val MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION = "Displaying the Help Guide as you might have used the application incorrectly"
     const val MESSAGE_INVALID_FLOW_INDEX = "Invalid use of application where the FLOW flag is either misspelled or missing: {}"
     const val MESSAGE_INVALID_BRANCH_INDEX = "Invalid use of application where the BRANCH flag is either misspelled or missing: {}"
-    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}'"
+    const val MESSAGE_INVALID_RESOURCE_INDEX = "Invalid use of application where the RESOURCE flag is either misspelled or missing: {}"
+    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}'"
 }
