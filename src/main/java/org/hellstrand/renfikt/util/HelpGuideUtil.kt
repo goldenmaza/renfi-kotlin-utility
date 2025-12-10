@@ -19,7 +19,7 @@ import org.hellstrand.renfikt.constant.Constants.MEDIA_SUPPORT
 import org.hellstrand.renfikt.constant.Constants.ORIGIN_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.RESOURCE_FLAGS
 import org.hellstrand.renfikt.constant.Constants.SOURCE_PROCESSING
-import org.hellstrand.renfikt.constant.Constants.TYPE_FLAGS
+import org.hellstrand.renfikt.constant.Constants.TIMESTAMP_FLAGS
 import org.hellstrand.renfikt.constant.Constants.VIDEO_PROCESSING
 import org.slf4j.LoggerFactory
 
@@ -93,7 +93,7 @@ object HelpGuideUtil {
 
         logger.info(
             guideToDisplay,
-            FLOW_FLAGS, BRANCH_FLAGS, RESOURCE_FLAGS, TYPE_FLAGS,
+            FLOW_FLAGS, BRANCH_FLAGS, RESOURCE_FLAGS, TIMESTAMP_FLAGS,
             prepareMediaExtensions(imageExtensions), prepareMediaExtensions(videoExtensions),
             IMAGE_PROCESSING, VIDEO_PROCESSING,
             FILE_PROCESSING, COMPARE_PROCESSING, CROP_PROCESSING, CONVERT_PROCESSING, DETECT_PROCESSING, SOURCE_PROCESSING,
