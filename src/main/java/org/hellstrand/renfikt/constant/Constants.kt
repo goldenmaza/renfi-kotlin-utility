@@ -2,7 +2,7 @@ package org.hellstrand.renfikt.constant
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (6th of December, 2025)
+ * @version (10th of December, 2025)
  */
 object Constants {
     // Application states, actions, attributes...
@@ -12,6 +12,8 @@ object Constants {
     const val PATH_INDEX = 3
     const val FROM_INDEX = 4
     const val TO_INDEX = 5
+    const val LEFT_Y_AXIS = 6
+    const val LEFT_X_AXIS = 7
 
     // Application flags for handling files...
     const val FILE_PROCESSING = "-f"
@@ -107,6 +109,7 @@ object Constants {
     const val MESSAGE_INVALID_RESOURCE_INDEX = "Invalid use of application where the RESOURCE flag is either misspelled or missing: {}"
     const val MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE = "No project directory was found with the stated path: {}"
     const val MESSAGE_INVALID_EXTENSION_RANGES = "Invalid use of application where the EXTENSIONS are either missing or out of bounds: {} & {}"
+    const val MESSAGE_INVALID_LEFT_AXES = "Invalid use of application where at least one of the LEFT AXES are either missing or invalid: {} & {}"
     const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}' under the following path: '{}'"
-    const val MESSAGE_PROCESSING_ATTRIBUTES = "The following attributes are also selected: '{}' to '{}' format"
+    const val MESSAGE_PROCESSING_ATTRIBUTES = "The following attributes are also selected: '{}' to '{}' format, Y='{}' & X='{}' axes values"
 }
