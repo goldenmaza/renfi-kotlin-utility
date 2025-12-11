@@ -106,14 +106,14 @@ object Constants {
 
     // Message variables used for displaying states, or actions, in the application...
     const val MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION = "Displaying the Help Guide as you might have used the application incorrectly"
-    const val MESSAGE_INVALID_FLOW_INDEX = "Invalid use of application where the FLOW flag is either misspelled or missing: {}"
-    const val MESSAGE_INVALID_BRANCH_INDEX = "Invalid use of application where the BRANCH flag is either misspelled or missing: {}"
-    const val MESSAGE_INVALID_RESOURCE_INDEX = "Invalid use of application where the RESOURCE flag is either misspelled or missing: {}"
-    const val MESSAGE_PROJECT_DIRECTORY_UNAVAILABLE = "No project directory was found with the stated path: {}"
-    const val MESSAGE_INVALID_EXTENSION_RANGES = "Invalid use of application where the EXTENSIONS are either missing or out of bounds: {} & {}"
-    const val MESSAGE_INVALID_LEFT_AXES = "Invalid use of application where at least one of the LEFT AXES are either missing or invalid: {} & {}"
-    const val MESSAGE_INVALID_TIMESTAMP_INDEX = "Invalid use of application where the TIMESTAMP flag is either misspelled or missing: {}"
-    const val MESSAGE_INVALID_BOUNDARY_INDEX = "Invalid use of application where the BOUNDARY flag is either misspelled or missing: {}"
+    const val MESSAGE_INVALID_FLOW_INDEX = "Invalid use of the application where the FLOW flag is either misspelled or missing: {}"
+    const val MESSAGE_INVALID_BRANCH_INDEX = "Invalid use of the application where the BRANCH flag is either misspelled or missing: {}"
+    const val MESSAGE_INVALID_RESOURCE_INDEX = "Invalid use of the application where the RESOURCE flag is either misspelled or missing: {}"
+    const val MESSAGE_INVALID_PROJECT_DIRECTORY = "Invalid use of the application where the project directory was NOT found with the stated path: {}"
+    const val MESSAGE_INVALID_EXTENSION_INDEXES = "Invalid use of the application where at least one of the EXTENSIONS are either missing or invalid: {} & {}"
+    const val MESSAGE_INVALID_AXIS_INDEXES = "Invalid use of the application where at least one of the AXES are either missing or invalid: {} & {}"
+    const val MESSAGE_INVALID_TIMESTAMP_INDEX = "Invalid use of the application where the TIMESTAMP flag is either misspelled or missing: {}"
+    const val MESSAGE_INVALID_BOUNDARY_INDEX = "Invalid use of the application where the BOUNDARY flag is either misspelled or missing: {}"
     const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}' up to '{}%' under the following path: '{}'"
     const val MESSAGE_PROCESSING_ATTRIBUTES = "The following attributes are also selected: '{}' to '{}' format, Y='{}' & X='{}' axes values, and '{}' timestamp flag"
 }

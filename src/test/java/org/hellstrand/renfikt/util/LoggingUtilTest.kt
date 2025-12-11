@@ -2,15 +2,19 @@ package org.hellstrand.renfikt.util
 
 import org.hellstrand.renfikt.constant.Constants.DATA_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.FILE_PROCESSING
-import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER
-import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETERS
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITH_PARAMETER
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_TEMPLATE_WITH_PARAMETERS
 import org.hellstrand.renfikt.util.LoggingUtil.formatMessage
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
+/**
+ * @author (Mats Richard Hellstrand)
+ * @version (15th of December, 2025)
+ */
 class LoggingUtilTest {
      @Test
      @DisplayName("Verifying that the formatMessage function works as expected, with a template and a parameter, and a formatted message is returned")
@@ -23,7 +27,7 @@ class LoggingUtilTest {
           val formattedMessage = formatMessage(messageTemplate, messageParameter)
 
           // Assert
-          assertEquals(ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER, formattedMessage)
+          assertEquals(ASSERT_FORMAT_MESSAGE_TEMPLATE_WITH_PARAMETER, formattedMessage)
      }
 
      @Test
@@ -38,6 +42,6 @@ class LoggingUtilTest {
           val formattedMessage = formatMessage(messageTemplate, messageParameterFileProcessing, messageParameterDataProcessing)
 
           // Assert
-          assertEquals(ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETERS, formattedMessage)
+          assertEquals(ASSERT_FORMAT_MESSAGE_TEMPLATE_WITH_PARAMETERS, formattedMessage)
      }
 }

@@ -33,6 +33,10 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
+/**
+ * @author (Mats Richard Hellstrand)
+ * @version (15th of December, 2025)
+ */
 class ConstantExtractionUtilTest {
     @Test
     @DisplayName("Verifying that the extractFlowTask function works as expected, meaning unlisted flag will return 'UnknownProcessingLabel'")
