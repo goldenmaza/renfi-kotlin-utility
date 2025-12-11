@@ -15,6 +15,7 @@ object Constants {
     const val LEFT_Y_AXIS = 6
     const val LEFT_X_AXIS = 7
     const val TIMESTAMP_INDEX = 8
+    const val BOUNDARY_INDEX = 9
 
     // Application flags for handling files...
     const val FILE_PROCESSING = "-f"
@@ -112,6 +113,7 @@ object Constants {
     const val MESSAGE_INVALID_EXTENSION_RANGES = "Invalid use of application where the EXTENSIONS are either missing or out of bounds: {} & {}"
     const val MESSAGE_INVALID_LEFT_AXES = "Invalid use of application where at least one of the LEFT AXES are either missing or invalid: {} & {}"
     const val MESSAGE_INVALID_TIMESTAMP_INDEX = "Invalid use of application where the TIMESTAMP flag is either misspelled or missing: {}"
-    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}' under the following path: '{}'"
+    const val MESSAGE_INVALID_BOUNDARY_INDEX = "Invalid use of application where the BOUNDARY flag is either misspelled or missing: {}"
+    const val MESSAGE_PROCESSING_TASK = "The task you have selected is: '{}' by '{}' of '{}' up to '{}%' under the following path: '{}'"
     const val MESSAGE_PROCESSING_ATTRIBUTES = "The following attributes are also selected: '{}' to '{}' format, Y='{}' & X='{}' axes values, and '{}' timestamp flag"
 }

@@ -9,6 +9,7 @@ import org.hellstrand.renfikt.constant.Constants.IMAGE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.JAVA_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_ALLOWED_ARGUMENT_IS_USED_AND_LOGGED
+import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_BOUNDARY_INDEX
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_BRANCH_INDEX
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_FLOW_INDEX
 import org.hellstrand.renfikt.constant.TestConstants.ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_RESOURCE_INDEX
@@ -68,7 +69,7 @@ class RenfiUtilityTest {
         // Prepare
         val args = arrayOf(
             INVALID_HYPHEN_FLAG, INVALID_HYPHEN_FLAG, INVALID_HYPHEN_FLAG, INVALID_RESOURCES_DIRECTORY_PATH,
-            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG
+            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -85,7 +86,7 @@ class RenfiUtilityTest {
         // Prepare
         val args = arrayOf(
             FILE_PROCESSING, INVALID_HYPHEN_FLAG, INVALID_HYPHEN_FLAG, INVALID_RESOURCES_DIRECTORY_PATH,
-            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG
+            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -102,7 +103,7 @@ class RenfiUtilityTest {
         // Prepare
         val args = arrayOf(
             FILE_PROCESSING, COMPARE_PROCESSING, INVALID_HYPHEN_FLAG, INVALID_RESOURCES_DIRECTORY_PATH,
-            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG
+            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -121,7 +122,7 @@ class RenfiUtilityTest {
         val invalidDirectoryPath = Paths.get(projectAbsolutePath, INVALID_RESOURCES_DIRECTORY_PATH).toString()
         val args = arrayOf(
             FILE_PROCESSING, COMPARE_PROCESSING, IMAGE_PROCESSING, invalidDirectoryPath,
-            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG
+            DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, DEFAULT_INDEX, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -144,7 +145,7 @@ class RenfiUtilityTest {
         val leftXAxis = "0"
         val args = arrayOf(
             FILE_PROCESSING, COMPARE_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -167,7 +168,7 @@ class RenfiUtilityTest {
         val leftXAxis = "0"
         val args = arrayOf(
             FILE_PROCESSING, COMPARE_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -190,7 +191,7 @@ class RenfiUtilityTest {
         val leftXAxis = "13"
         val args = arrayOf(
             FILE_PROCESSING, CROP_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -213,7 +214,7 @@ class RenfiUtilityTest {
         val leftXAxis = "-1"
         val args = arrayOf(
             FILE_PROCESSING, CROP_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -236,7 +237,7 @@ class RenfiUtilityTest {
         val leftXAxis = "0"
         val args = arrayOf(
             FILE_PROCESSING, CROP_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, INVALID_HYPHEN_FLAG, DEFAULT_INDEX
         )
 
         // Execute
@@ -245,6 +246,30 @@ class RenfiUtilityTest {
         // Assert
         val exception = assertThrows(InvalidUseException::class.java, executable)
         assertEquals(ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_TIMESTAMP_INDEX, exception.message)
+    }
+
+    @Test
+    @DisplayName("Verifying that the main method fetches the BOUNDARY argument and act accordingly when it is used incorrectly")
+    fun mainMethodEntryTest_InvalidBoundaryFlagArgument_LogErrorAndThrowInvalidUseException() {
+        // Prepare
+        val projectAbsolutePath = Paths.get("").toAbsolutePath().toString()
+        val validDirectoryPath = Paths.get(projectAbsolutePath, VALID_RESOURCES_DIRECTORY_PATH).toString()
+        val fromIndex = "0"
+        val toIndex = "3"
+        val leftYAxis = "0"
+        val leftXAxis = "0"
+        val boundary = "-1"
+        val args = arrayOf(
+            FILE_PROCESSING, CROP_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
+            fromIndex, toIndex, leftYAxis, leftXAxis, CREATION_TIME_FLAG, boundary
+        )
+
+        // Execute
+        val executable = Executable { RenfiUtility.main(args) }
+
+        // Assert
+        val exception = assertThrows(InvalidUseException::class.java, executable)
+        assertEquals(ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_BOUNDARY_INDEX, exception.message)
     }
 
     @Test
@@ -257,9 +282,10 @@ class RenfiUtilityTest {
         val toIndex = "3"
         val leftYAxis = "0"
         val leftXAxis = "0"
+        val boundary = "1"
         val args = arrayOf(
             FILE_PROCESSING, COMPARE_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, CREATION_TIME_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, CREATION_TIME_FLAG, boundary
         )
 
         // Execute
@@ -279,9 +305,10 @@ class RenfiUtilityTest {
         val toIndex = "3"
         val leftYAxis = "0"
         val leftXAxis = "0"
+        val boundary = "1"
         val args = arrayOf(
             DATA_PROCESSING, JAVA_PROCESSING, IMAGE_PROCESSING, validDirectoryPath,
-            fromIndex, toIndex, leftYAxis, leftXAxis, CREATION_TIME_FLAG
+            fromIndex, toIndex, leftYAxis, leftXAxis, CREATION_TIME_FLAG, boundary
         )
 
         // Execute

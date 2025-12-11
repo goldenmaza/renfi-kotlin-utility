@@ -21,6 +21,7 @@ object TestConstants {
     const val ASSERT_MESSAGE_INVALID_EXTENSION_RANGES = "Invalid use of application where the EXTENSIONS are either missing or out of bounds: {} & {}"
     const val ASSERT_MESSAGE_INVALID_LEFT_AXES = "Invalid use of application where at least one of the LEFT AXES are either missing or invalid: {} & {}"
     const val ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_TIMESTAMP_INDEX = "Invalid use of application where the TIMESTAMP flag is either misspelled or missing: -x"
+    const val ASSERT_FORMAT_MESSAGE_FUNCTION_TEST_INVALID_BOUNDARY_INDEX = "Invalid use of application where the BOUNDARY flag is either misspelled or missing: -1"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: {}"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_WITHOUT_PARAMETERS = "Asserting that the formatMessage function is working as expected with a single template and multiple parameters: {} {}"
     const val ASSERT_FORMAT_MESSAGE_TEMPLATE_AND_PARAMETER = "Asserting that the formatMessage function is working as expected with a single template and parameter: -f"

@@ -1,5 +1,6 @@
 package org.hellstrand.renfikt
 
+import org.hellstrand.renfikt.constant.Constants.BOUNDARY_INDEX
 import org.hellstrand.renfikt.constant.Constants.BRANCH_FLAGS
 import org.hellstrand.renfikt.constant.Constants.BRANCH_INDEX
 import org.hellstrand.renfikt.constant.Constants.FLOW_FLAGS
@@ -8,6 +9,7 @@ import org.hellstrand.renfikt.constant.Constants.FROM_INDEX
 import org.hellstrand.renfikt.constant.Constants.HELP_FLAGS
 import org.hellstrand.renfikt.constant.Constants.MEDIA_SUPPORT
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION
+import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_BOUNDARY_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_BRANCH_INDEX
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_EXTENSION_RANGES
 import org.hellstrand.renfikt.constant.Constants.MESSAGE_INVALID_FLOW_INDEX
@@ -42,7 +44,7 @@ object RenfiUtility {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        if (args.size < 9 || HELP_FLAGS.contains(args[0])) {
+        if (args.size < 10 || HELP_FLAGS.contains(args[0])) {
             displayHelpGuide()
             throw DisplayHelpGuideException(MESSAGE_DISPLAY_HELP_GUIDE_EXCEPTION)
         }
@@ -57,6 +59,7 @@ object RenfiUtility {
         val leftYAxis = args[LEFT_Y_AXIS]
         val leftXAxis = args[LEFT_X_AXIS]
         val timestamp = args[TIMESTAMP_INDEX]
+        val boundary = args[BOUNDARY_INDEX]
 
         // Evaluate the application's arguments...
         if (!FLOW_FLAGS.contains(flow)) {
@@ -97,6 +100,11 @@ object RenfiUtility {
             throw InvalidUseException(formatMessage(MESSAGE_INVALID_TIMESTAMP_INDEX, timestamp))
         }
 
+        if (Integer.parseInt(boundary) < 1 || Integer.parseInt(boundary) > 100) {
+            logger.error(MESSAGE_INVALID_BOUNDARY_INDEX, boundary)
+            throw InvalidUseException(formatMessage(MESSAGE_INVALID_BOUNDARY_INDEX, boundary))
+        }
+
         // Fetch the tasks from the extraction utility...
         val flowTask = ConstantExtractionUtil.extractFlowTask(flow)
         val branchTask = ConstantExtractionUtil.extractBranchTask(branch)
@@ -105,7 +113,7 @@ object RenfiUtility {
         val toExtension = selectedExtensions[extensionToIndex]
 
         // Present the application's execution and ask for input...
-        logger.info(MESSAGE_PROCESSING_TASK, flowTask, branchTask, resourceTask, path)
+        logger.info(MESSAGE_PROCESSING_TASK, flowTask, branchTask, resourceTask, boundary, path)
         logger.info(
             MESSAGE_PROCESSING_ATTRIBUTES,
             fromExtension.substring(1), toExtension.substring(1), leftYAxis, leftXAxis, timestamp
