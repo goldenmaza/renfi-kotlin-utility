@@ -1,11 +1,13 @@
 package org.hellstrand.renfikt.mock
 
+import io.mockk.mockkObject
 import org.hellstrand.renfikt.constant.Constants.COMPARE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.CREATION_TIME_FLAG
 import org.hellstrand.renfikt.constant.Constants.DATA_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.FILE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.IMAGE_PROCESSING
 import org.hellstrand.renfikt.constant.Constants.JAVA_PROCESSING
+import org.hellstrand.renfikt.constant.Constants.VIDEO_PROCESSING
 import org.hellstrand.renfikt.constant.TestConstants.DEFAULT_INTEGER_VALUE
 import org.hellstrand.renfikt.constant.TestConstants.HYPHEN_HELP_FLAG
 import org.hellstrand.renfikt.constant.TestConstants.INVALID_HYPHEN_FLAG
@@ -17,11 +19,16 @@ import org.hellstrand.renfikt.constant.TestConstants.IRRELEVANT_NEGATIVE_INTEGER
 import org.hellstrand.renfikt.constant.TestConstants.IRRELEVANT_POSITIVE_INTEGER_VALUE
 import org.hellstrand.renfikt.constant.TestConstants.MAX_INTEGER_VALUE
 import org.hellstrand.renfikt.constant.TestConstants.VALID_RESOURCES_PATH_SUFFIX
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractBranchTask
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractFlowTask
+import org.hellstrand.renfikt.util.ConstantExtractionUtil.extractResourceTask
+import org.hellstrand.renfikt.util.FileProcessingUtil.validateTarget
+import org.hellstrand.renfikt.util.HelpGuideUtil.displayHelpGuide
 import java.nio.file.Paths
 
 /**
  * @author (Mats Richard Hellstrand)
- * @version (11th of December, 2025)
+ * @version (15th of December, 2025)
  */
 object RenfiUtilityMock {
     private val PROJECT_ABSOLUTE_PATH = Paths.get("").toAbsolutePath().toString()
@@ -190,5 +197,43 @@ object RenfiUtilityMock {
         val timestamp = CREATION_TIME_FLAG
         val boundary = MAX_INTEGER_VALUE
         return arrayOf(flow, branch, resource, VALID_DIRECTORY_PATH, from, to, yAxis, xAxis, timestamp, boundary)
+    }
+
+    fun mockUtilObjects(utils: Array<Any>) {
+        for (util in utils) {
+            mockkObject(util)
+        }
+    }
+
+    val verifyHelpGuideUtilWasCalledWithoutParameters = {
+        displayHelpGuide()
+    }
+
+    val verifyFileProcessingUtilWasCalledWithPathParameter = {
+        validateTarget(VALID_DIRECTORY_PATH)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithFileProcessingParameter = {
+        extractFlowTask(FILE_PROCESSING)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithDataProcessingParameter = {
+        extractFlowTask(DATA_PROCESSING)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithCompareProcessingParameter = {
+        extractBranchTask(COMPARE_PROCESSING)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithJavaProcessingParameter = {
+        extractBranchTask(JAVA_PROCESSING)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithImageProcessingParameter = {
+        extractResourceTask(IMAGE_PROCESSING)
+    }
+
+    val verifyConstantExtractionUtilWasCalledWithVideoProcessingParameter = {
+        extractResourceTask(VIDEO_PROCESSING)
     }
 }
